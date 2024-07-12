@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Layout Stylings */
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+        perspective: 2px;
+        transform-style: preserve-3d;
+        height: 250vh; /* Increased height for more scrolling space */
+        overflow-y: scroll;
+        overflow-x: hidden;
+      }
+
+      .background {
+        background-image: url("logo.jpg"); /* Ensure the image path is correct */
+        background-size: contain;
+        background-attachment: fixed;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transform: scale(1.5); /* Adjusted initial scale */
+        transition: transform 0.5s ease-out;
+      }
+
+      /* Header Container */
+      .header-container {
+        text-align: center;
+        padding: 50px 0;
+        background: #333;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      #header-text {
+        font-size: 2.5rem;
+        color: #fff;
+        animation: slideIn 2s ease-in-out, fadeIn 3s ease-in-out;
+      }
+
+      /* Section Styles */
+      .section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 3em;
+        color: white;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        margin: 0;
+        transform: translateZ(-1px) scale(5); /* Adjusted scale for better effect */
+      }
+      .section h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #f6d365, #fda085);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        border-bottom: 4px solid #e74c3c;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate {
+        opacity: 0;
+        animation: fadeInUp 2s forwards;
+      }
+
+      /* New Grid Section Styles */
+      .grid-section {
+        text-align: center;
+        padding: 50px 0;
+      }
+
+      .grid-section-title {
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .grid-item {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .grid-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .grid-item-content {
+        text-align: left;
+      }
+
+      .grid-item h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .grid-item p {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .animate-grid-item {
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Animations */
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUpGrid {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .pop-image {
+        width: 100%;
+        height: auto;
+        animation: popIn 1s forwards;
+      }
+
+      @keyframes popIn {
+        from {
+          transform: scale(0);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* Show Grid Section */
+      .show {
+        display: block !important;
+        animation: fadeIn 2s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="header-container">
+      <h1 id="header-text">
+        #1 Trusted White Label Partner for Digital Agencies
+      </h1>
+    </div>
+    <div class="section animate fadeInUp">
+      <h1>UX and UI Design Now Made Super Easy</h1>
+    </div>
+    <div class="section animate fadeInUp">
+      <h1>Rankup Solutions and SEO Optimization</h1>
+    </div>
+    <div class="section animate fadeInUp">
+      <h1>Global Reach and Awards</h1>
+    </div>
+
+    <!-- New Grid Section -->
+    <div class="grid-section" id="grid-section">
+      <h1 class="grid-section-title" style="color: #f6d365">Our Services</h1>
+      <div class="grid">
+        <div class="grid-item animate-grid-item">
+          <div class="grid-item-content">
+            <h2>RESPONSIVE & RETINA READY</h2>
+            <p>
+              Element looks great on any screen resolution and on any device due
+              to its responsiveness.
+            </p>
+          </div>
+        </div>
+        <div class="grid-item animate-grid-item">
+          <div class="grid-item-content">
+            <h2>SEO FRIENDLY</h2>
+            <p>
+              Valid code and performance optimized framework make SEO easy and
+              hassle free.
+            </p>
+          </div>
+        </div>
+        <div class="grid-item animate-grid-item">
+          <div class="grid-item-content">
+            <h2>FLEXIBLE AND MULTIPURPOSE</h2>
+            <p>
+              Element allows creating various websites for complex and scalable
+              projects.
+            </p>
+          </div>
+        </div>
+        <div class="grid-item animate-grid-item">
+          <div class="grid-item-content">
+            <h2>BUILT FOR SPEED</h2>
+            <p>
+              Our template was built for speed. Get the best results at GTmetrix
+              and Google PageSpeed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("scroll", function () {
+        const scrollY = window.scrollY;
+        document.querySelector(".background").style.transform = `scale(${
+          1.2 + scrollY * 0.0005
+        })`; // Adjusted scale factor for smoother zoom
+
+        const gridSection = document.getElementById("grid-section");
+        if (scrollY > window.innerHeight) {
+          gridSection.classList.add("show");
+          const gridItems = document.querySelectorAll(".grid-item");
+          gridItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.3}s`;
+          });
+        }
+      });
+
+      window.addEventListener("load", () => {
+        const sections = document.querySelectorAll(".section");
+        sections.forEach((section, index) => {
+          section.style.animationDelay = `${index * 0.5}s`;
+        });
+      });
+
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const headerText = document.getElementById("header-text");
+        headerText.style.animation = "none";
+        headerText.offsetHeight; /* trigger reflow */
+        headerText.style.animation = null;
+      });
+
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const animatedElements = document.querySelectorAll(".animate");
+        animatedElements.forEach((element) => {
+          element.style.animation = "none";
+          element.offsetHeight; /* trigger reflow */
+          element.style.animation = null;
+        });
+      });
+    </script>
+  </body>
+</html>
